@@ -13,7 +13,7 @@ public class UserProfile {
     public UserProfile(UUID userProfileId, String username, String userProfileImageLink) {
         this.userProfileId = userProfileId;
         this.username = username;
-        this.userProfileImageLink = userProfileImageLink;
+        this.userProfileImageLink = userProfileImageLink; // S3 key
     }
 
     public UUID getUserProfileId() {
