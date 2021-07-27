@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AwsImageUploadApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(AwsImageUploadApplication.class, args);
 	}
 
