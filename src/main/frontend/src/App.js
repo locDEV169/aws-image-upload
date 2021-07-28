@@ -9,6 +9,7 @@ const UserProfiles = () => {
   const fetchUserProfiles = () => {
     axios.get("http://localhost:8080/api/v1/user-profile").then((res) => {
       console.log(res);
+      setUserProfiles(res.data);
     })
         .catch(error => console.log(error));
   };
@@ -16,8 +17,15 @@ const UserProfiles = () => {
   useEffect(() => {
     fetchUserProfiles();
   }, []);
-
-  return <h2>hello</h2>
+ 
+  return userProfiles.map((userProfile,index) =>{
+    return(
+      <div key={index}>
+        <h1>{userProfile.username}</h1>
+        <p>{userProfile.userProfileId}</p>
+      </div>
+    )
+  })
 };
 
 function App() {

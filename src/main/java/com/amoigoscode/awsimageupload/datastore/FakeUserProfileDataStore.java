@@ -14,6 +14,7 @@ public class FakeUserProfileDataStore {
     static {
         USER_PROFILES.add(new UserProfile(UUID.randomUUID(),"senior",null));
         USER_PROFILES.add(new UserProfile(UUID.randomUUID(),"junior",null));
+        USER_PROFILES.add(new UserProfile(UUID.randomUUID(),"fresher",null));
     }
 
     public List<UserProfile> getUserProfiles(){
