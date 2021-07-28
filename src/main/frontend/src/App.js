@@ -35,7 +35,7 @@ const UserProfiles = () => {
   })
 };
 
-function MyDropzone(userProfileId) {
+function MyDropzone({userProfileId}) {
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
     const file = acceptedFiles[0];
