@@ -4,6 +4,7 @@ import React, {useState,useEffect} from "react";
 import axios from "axios";
 
 const UserProfiles = () => {
+  //get var
   const [userProfiles, setUserProfiles] = useState([]);
 
   const fetchUserProfiles = () => {
