@@ -49,7 +49,7 @@ function MyDropzone({userProfileId}) {
     };
     axios.post(`http://localhost:8080/api/v1/user-profile/${userProfileId}/image/upload`,formData,config)
         .then(() => {
-          console.log("file upload successful");
+          console.log("file upload successfully");
         })
         .catch(error => {
           console.log(error)
