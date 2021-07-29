@@ -43,6 +43,7 @@ public class UserProfileService {
         String filename = String.format("%s-%s", file.getOriginalFilename(),UUID.randomUUID());
         try {
             fileStore.save(path,filename,Optional.of(metadata),file.getInputStream());
+            user.setUserProfileImageLink(filename);
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalStateException(e);
@@ -66,11 +67,11 @@ public class UserProfileService {
     }
 
     private void isImage(MultipartFile file) {
-        if(!Arrays.asList(
+        if (!Arrays.asList(
                 IMAGE_JPEG.getMimeType(),
                 IMAGE_PNG.getMimeType(),
-                IMAGE_GIF.getMimeType() ).contains(file.getContentType())){
-            throw new IllegalStateException("file must be an image [" + file.getContentType() + "]");
+                IMAGE_GIF.getMimeType()).contains(file.getContentType())) {
+            throw new IllegalStateException("File must be an image [" + file.getContentType() + "]");
         }
     }
 
