@@ -49,6 +49,22 @@ public class UserProfileService {
             throw new IllegalStateException(e);
         }
     }
+
+    //tạo từ userProfileController
+    public byte[] downloadUserProfileImage(UUID userProfileId) {
+        UserProfile user = getUserProfileOrThrow(userProfileId);
+        String path = String.format("%s/%s",
+                BucketName.PROFILE_IMAGE.getBucketName(),
+                user.getUserProfileId());
+
+        return user.getUserProfileImageLink()
+                .map(key -> fileStore.download(path,key))
+                .orElse(new byte[0]);
+
+//        return fileStore.download(path);
+
+    }
+
     // lets test thing có nghĩa upload image lên cloud
     private Map<String, String> extractMetadata(MultipartFile file) {
         Map<String, String> metadata = new HashMap<>();
@@ -80,5 +96,6 @@ public class UserProfileService {
             throw new IllegalStateException("Cannot upload empty file[" + file.getSize() + "]");
         }
     }
+
 
 }
